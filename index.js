@@ -49,7 +49,12 @@ client.on('interactionCreate', async interaction => {
       `Silver does not rust. Silver does not beg. Silver pays its own.\n\n` +
       `Respectfully,\n${killer}\nOperative, Silver\nYC.${yc}`;
 
-    await interaction.reply({ content: `📨 **Generated EVEmail:**\n\n${body}`, ephemeral: true });
+    const { InteractionResponseFlags } = require('discord.js');
+
+    await interaction.reply({
+      content: `📨 **Generated EVEmail:**\n\n${body}`,
+      flags: InteractionResponseFlags.Ephemeral
+    });
   }
 });
 
